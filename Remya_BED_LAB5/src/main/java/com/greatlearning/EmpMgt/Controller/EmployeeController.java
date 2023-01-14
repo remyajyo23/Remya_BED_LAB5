@@ -54,13 +54,13 @@ public class EmployeeController {
 		@PostMapping("/employees/{id}")
 		public String updateemployee(@PathVariable Long id, @ModelAttribute("employee") Employee employee, Model model) {
 
-			Employee existingEmployee = employeeService.getEmployeeById(id);
-			existingEmployee.setId(id);
-			existingEmployee.setFirstname(employee.getFirstname());
-			existingEmployee.setLastname(employee.getLastname());
-			existingEmployee.setEmail(employee.getEmail());
+			Employee updEmployee = employeeService.getEmployeeById(id);
+			updEmployee.setId(id);
+			updEmployee.setFirstname(employee.getFirstname());
+			updEmployee.setLastname(employee.getLastname());
+			updEmployee.setEmail(employee.getEmail());
 
-			employeeService.updateEmployee(existingEmployee);
+			employeeService.updateEmployee(updEmployee);
 			return "redirect:/employees";
 		}
 
@@ -73,20 +73,3 @@ public class EmployeeController {
 	
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
